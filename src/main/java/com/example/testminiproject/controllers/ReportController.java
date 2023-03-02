@@ -59,6 +59,11 @@ public class ReportController {
         }
     }
 
+    @PutMapping("/{id}")
+    public @ResponseBody ResponseEntity<Optional<ReportModel>> putOnsenAppoint(@PathVariable Long id ,@RequestBody ReportModel report){
+        return new ResponseEntity<>(this.reportService.updateReport(id,report),HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public @ResponseBody ResponseEntity<String> deleteReport(@PathVariable Long id){
         this.reportService.deleteByID(id);
