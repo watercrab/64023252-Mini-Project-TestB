@@ -42,7 +42,7 @@ public class ReportController {
         return new ResponseEntity<>(this.reportService.findReportByID(id),HttpStatus.OK);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public @ResponseBody ResponseEntity<List<ReportModel>> getReportByName(@PathVariable String name){
         return new ResponseEntity<>(this.reportService.findReportByName(name),HttpStatus.OK);
     }
@@ -60,7 +60,7 @@ public class ReportController {
     }
 
     @PutMapping("/{id}")
-    public @ResponseBody ResponseEntity<Optional<ReportModel>> putOnsenAppoint(@PathVariable Long id ,@RequestBody ReportModel report){
+    public @ResponseBody ResponseEntity<Optional<ReportModel>> putReport(@PathVariable Long id ,@RequestBody ReportModel report){
         return new ResponseEntity<>(this.reportService.updateReport(id,report),HttpStatus.OK);
     }
 
@@ -69,4 +69,5 @@ public class ReportController {
         this.reportService.deleteByID(id);
         return new ResponseEntity<>(String.format("%d has deleted.",id),HttpStatus.OK);
     }
+
 }
