@@ -41,8 +41,6 @@ public class ReportControllerTest {
     @InjectMocks
     private ReportController reportController;
 
-//    ReportModel obj1 = new ReportModel(1L,"kim","01",1,"test","1234");
-//    ReportModel obj2 = new ReportModel(2L,"kim","02",23,"test","4321");
 
     @Before
     private void setUp(){
@@ -54,10 +52,10 @@ public class ReportControllerTest {
     public void createReport_success()throws Exception{
         ReportModel model = ReportModel.builder()
                 .id(3L)
-                .name("kimmy")
-                .dormName("01")
-                .room(1)
-                .details("test")
+                .name("minee")
+                .dormName("UP Dome")
+                .room(513)
+                .details("น้ำไม่ไหล")
                 .image("12321321315454")
                 .build();
 
@@ -73,6 +71,7 @@ public class ReportControllerTest {
         mockMvc.perform(mockRequest)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$",notNullValue()))
-                .andExpect(jsonPath("$.name",is("kimmy")));
+                .andExpect(jsonPath("$.name",is("minee")));
     }
 }
+
