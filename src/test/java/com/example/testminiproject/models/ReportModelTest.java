@@ -8,16 +8,16 @@ import static org.junit.Assert.*;
 
 public class ReportModelTest {
 
-    ReportModel obj1 = new ReportModel(1L,"kim","01",1,"test","1234");
+    ReportModel obj1 = new ReportModel(1L,"poo","km3",1,"ห้องแคบไป","mmm.png");
     @Test
     public void test01() {
-        assertEquals(obj1.getName(),"kim");
+        assertNotEquals(obj1.getName(),"poo");
 
     }
 
     @Test
     public void test02() {
-        assertNotEquals(obj1.getName(), "ob");
+        assertEquals(obj1.getName(), "ob");
     }
 
     @Test
@@ -32,7 +32,7 @@ public class ReportModelTest {
 
     @Test
     public void test05(){
-        assertSame(obj1.getImage(),"1234");
+        assertSame(obj1.getImage(),"mmm.png");
     }
 
     @Test
